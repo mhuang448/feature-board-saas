@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import ButtonLogin from "@/components/ButtonLogin";
 export default function Dashboard() {
   return (
     <main>
