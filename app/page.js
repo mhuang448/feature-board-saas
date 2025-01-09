@@ -2,7 +2,8 @@ import ButtonLogin from "@/components/ButtonLogin";
 // import ListItem from "@/components/ListItem";
 import ExampleState from "@/components/ExampleState";
 import FAQListItem from "@/components/FAQListItem";
-
+import Image from "next/image";
+import productDemo from "./productDemo.jpeg";
 export default function Home() {
   const name = "Marc";
   const isLoggedIn = true;
@@ -61,7 +62,7 @@ export default function Home() {
     <main>
       {/* HEADER */}
       <section className="bg-base-200">
-        <section className="max-w-3xl mx-auto flex justify-between items-center px-8 py-2">
+        <section className="max-w-5xl mx-auto flex justify-between items-center px-8 py-2">
           <div className="font-bold">CodeFastSaas</div>
           <div className="space-x-4 max-md:hidden">
             <a className="link link-hover" href="#pricing">
@@ -77,19 +78,24 @@ export default function Home() {
         </section>
       </section>
       {/* HERO */}
-      <section className="px-8 text-center py-32 max-w-3xl mx-auto">
-        <h1 className="text-4xl lg:text-5xl font-extrabold mb-6">
-          Collect Customer Feedback to build better products
-        </h1>
-        <div className="opacity-90 mb-10">
-          Create feedback board in minutes, prioritize features, and build
-          products your customers will love.
+      <section className="px-8 text-center lg:text-left py-32 max-w-5xl mx-auto flex flex-col lg:flex-row gap-14 items-center lg:items-start">
+        <Image
+          src={productDemo}
+          alt="Product Demo"
+          className="w-96 rounded-xl" // EXTRA OPTIONAL h-40 object-contain grayscale saturate-200
+        />
+        <div>
+          <h1 className="text-4xl lg:text-5xl font-extrabold mb-6">
+            Collect Customer Feedback to build better products
+          </h1>
+          <div className="opacity-90 mb-10">
+            Create feedback board in minutes, prioritize features, and build
+            products your customers will love.
+          </div>
+          <ButtonLogin isLoggedIn={isLoggedIn} name={name}>
+            {/* <div>This is a test</div> */}
+          </ButtonLogin>
         </div>
-        {/* <button className="btn">Get started</button> */}
-
-        <ButtonLogin isLoggedIn={isLoggedIn} name={name}>
-          {/* <div>This is a test</div> */}
-        </ButtonLogin>
         {/* <p>Hey {name}</p> */}
       </section>
 

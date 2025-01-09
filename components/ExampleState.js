@@ -14,7 +14,7 @@ export const ExampleState = () => {
   //   };
 
   return (
-    <div className="py-48 px-8 flex items-center gap-4">
+    <div className="py-48 px-8 flex items-center gap-4 mx-auto justify-center">
       <button
         className="btn"
         onClick={() => {
