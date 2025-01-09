@@ -82,7 +82,7 @@ export default function Home() {
         <Image
           src={productDemo}
           alt="Product Demo"
-          className="w-96 rounded-xl" // EXTRA OPTIONAL h-40 object-contain grayscale saturate-200
+          className="w-96 rounded-xl grayscale" // EXTRA OPTIONAL h-40 object-contain grayscale saturate-200
         />
         <div>
           <h1 className="text-4xl lg:text-5xl font-extrabold mb-6">
