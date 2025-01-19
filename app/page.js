@@ -1,12 +1,18 @@
 import ButtonLogin from "@/components/ButtonLogin";
+import ButtonCat from "@/components/ButtonCat";
 // import ListItem from "@/components/ListItem";
 import ExampleState from "@/components/ExampleState";
 import FAQListItem from "@/components/FAQListItem";
 import Image from "next/image";
 import productDemo from "./productDemo.jpeg";
-export default function Home() {
-  const name = "Marc";
-  const isLoggedIn = true;
+import yizzyGroupLogo from "./YizzyGroupLogo.jpeg";
+import { auth } from "@/auth";
+
+export default async function Home() {
+  // const name = "Marc";
+  // const isLoggedIn = true;
+
+  const session = await auth();
 
   const age = 19;
   let canVote;
@@ -14,8 +20,8 @@ export default function Home() {
 
   console.log(canVote);
 
-  const greeting2 = `Hello ${isLoggedIn ? name : "there"}`;
-  console.log(greeting2);
+  // const greeting2 = `Hello ${isLoggedIn ? name : "there"}`;
+  // console.log(greeting2);
 
   const fruits = ["🍎", "🍓", "🍇"];
   console.log(fruits.length);
@@ -63,7 +69,7 @@ export default function Home() {
       {/* HEADER */}
       <section className="bg-base-200">
         <section className="max-w-5xl mx-auto flex justify-between items-center px-8 py-2">
-          <div className="font-bold">CodeFastSaas</div>
+          <div className="font-bold">The Yizzy Group</div>
           <div className="space-x-4 max-md:hidden">
             <a className="link link-hover" href="#pricing">
               Pricing
@@ -73,10 +79,16 @@ export default function Home() {
             </a>
           </div>
           <div>
-            <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
+            <ButtonLogin session={session} />
           </div>
         </section>
       </section>
+
+      {/* CAT BUTTON */}
+      <div className="flex justify-center mt-4">
+        <ButtonCat />
+      </div>
+
       {/* HERO */}
       <section className="px-8 text-center lg:text-left py-32 max-w-5xl mx-auto flex flex-col lg:flex-row gap-14 items-center lg:items-start">
         <Image
@@ -92,7 +104,7 @@ export default function Home() {
             Create feedback board in minutes, prioritize features, and build
             products your customers will love.
           </div>
-          <ButtonLogin isLoggedIn={isLoggedIn} name={name}>
+          <ButtonLogin session={session}>
             {/* <div>This is a test</div> */}
           </ButtonLogin>
         </div>
@@ -152,11 +164,7 @@ export default function Home() {
               ))}
             </ul>
 
-            <ButtonLogin
-              isLoggedIn={isLoggedIn}
-              name={name}
-              extraStyle="w-full"
-            />
+            <ButtonLogin session={session} extraStyle="w-full" />
           </div>
         </div>
       </section>
@@ -191,7 +199,18 @@ export default function Home() {
         </div>
       </section>
       {/* State example  */}
-      <ExampleState />
+      <section className="bg-base-200">
+        <ExampleState className="bg-base-200" />
+      </section>
+      <section className="bg-gradient-to-b from-[#f2f2f2] via-[#c1c1c5] to-[#bababe]">
+        <div className="flex justify-center items-center mb-8 py-12">
+          <Image
+            src={yizzyGroupLogo}
+            alt="Yizzy Group Logo"
+            className="w-96 rounded-xl saturate-200"
+          />
+        </div>
+      </section>
     </main>
   );
 }
