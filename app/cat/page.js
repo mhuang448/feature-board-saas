@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ButtonHome from "@/components/ButtonHome";
+
 const RandomCatImage = () => {
   const [status, setStatus] = useState("Idle");
   const [imageUrl, setImageUrl] = useState(
