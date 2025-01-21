@@ -189,8 +189,9 @@ export default async function Home() {
                   "We do not offer refunds. You can cancel your subscription at any time.",
               },
               {
-                question: "Whats our",
-                answer: "Please ask away! [ INSERT TEXT HERE ]",
+                question: "How long have we been around?",
+                answer:
+                  "This project has been in development for 10 years. We are proud to release and hope you enjoy.",
               },
             ].map((qa) => (
               <FAQListItem key={qa.question} qa={qa}></FAQListItem>
