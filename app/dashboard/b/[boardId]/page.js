@@ -1,12 +1,14 @@
 import Link from "next/link";
 import connectMongo from "@/libs/mongoose";
 import Board from "@/models/Board";
+import Post from "@/models/Post";
+import CardPostAdmin from "@/components/CardPostAdmin";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import CardBoardLink from "@/components/CardBoardLink";
 import ButtonDeleteBoard from "@/components/ButtonDeleteBoard";
 
-const getBoard = async (boardId) => {
+const getData = async (boardId) => {
   const session = await auth();
   await connectMongo();
   const board = await Board.findOne({
@@ -16,12 +18,13 @@ const getBoard = async (boardId) => {
   if (!board) {
     redirect("/dashboard?error=board-not-found");
   }
-  return board;
+  const posts = await Post.find({ boardId }).sort({ createdAt: -1 });
+  return { board, posts };
 };
 
 export default async function FeedbackBoard({ params }) {
   const { boardId } = params;
-  const board = await getBoard(boardId);
+  const { board, posts } = await getData(boardId);
   return (
     <main className="bg-base-200 min-h-screen">
       <section className="bg-base-100">
@@ -44,10 +47,21 @@ export default async function FeedbackBoard({ params }) {
         </section>
       </section>
 
-      <section className=" max-w-5xl mx-auto px-5 py-12 space-y-12">
-        <h1 className="text-xl font-extrabold mb-4">{board.name}</h1>
-        <CardBoardLink boardId={board._id.toString()} />
-        <ButtonDeleteBoard boardId={board._id.toString()} />
+      <section className=" max-w-5xl mx-auto px-5 py-12 flex flex-col md:flex-row gap-10">
+        <div className="space-y-8">
+          <h1 className="text-xl font-extrabold mb-4 px-4 py-2.5">
+            {board.name}
+          </h1>
+          <CardBoardLink boardId={board._id.toString()} />
+          <ButtonDeleteBoard boardId={board._id.toString()} />
+        </div>
+        <div className="flex-grow">
+          <ul className="space-y-4">
+            {posts.map((post) => (
+              <CardPostAdmin key={post._id} post={post} />
+            ))}
+          </ul>
+        </div>
       </section>
     </main>
   );
