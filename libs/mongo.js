@@ -31,3 +31,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 export default clientPromise;
+
+// use case
+// in Home page.js
+// import clientPromise from @/libs/mongo
+// clientPromise.db.collection("users").find({age: 32})
