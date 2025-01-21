@@ -181,15 +181,15 @@ export default async function Home() {
               {
                 question: "What do I get exactly?",
                 answer:
-                  "Lifechanging spiritual advice to guide and empower you to become your best self.",
+                  "Ability to create feedback boards, collect customer feedback, prioritize features, and build products your customers will love.",
               },
               {
                 question: "Can I get a refund",
                 answer:
-                  "Yes. If you are not satisfied with your purchase you can email chris@helloclout.com for a refund.",
+                  "We do not offer refunds. You can cancel your subscription at any time.",
               },
               {
-                question: "I have another question",
+                question: "Whats our",
                 answer: "Please ask away! [ INSERT TEXT HERE ]",
               },
             ].map((qa) => (
@@ -199,9 +199,9 @@ export default async function Home() {
         </div>
       </section>
       {/* State example  */}
-      <section className="bg-base-200">
+      {/* <section className="bg-base-200">
         <ExampleState className="bg-base-200" />
-      </section>
+      </section> */}
       <section className="bg-gradient-to-b from-[#f2f2f2] via-[#c1c1c5] to-[#bababe]">
         <div className="flex justify-center items-center mb-8 py-12">
           <Image
