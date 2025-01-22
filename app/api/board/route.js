@@ -26,7 +26,7 @@ export async function POST(request) {
     }
 
     // mongoose automatically connects to the database when you use findById
-    // await connectMongo();
+    await connectMongo();
 
     const user = await User.findById(session.user.id);
 
@@ -88,6 +88,7 @@ export async function DELETE(request) {
       );
     }
 
+    await connectMongo();
     const user = await User.findById(session?.user?.id);
 
     if (!user.hasAccess) {
