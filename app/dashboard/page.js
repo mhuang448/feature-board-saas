@@ -5,7 +5,7 @@ import { auth } from "@/auth";
 import connectMongo from "@/libs/mongoose";
 import User from "@/models/User";
 import ButtonCheckout from "@/components/ButtonCheckout";
-import ButtonPortal from "@/components/ButtonPortal";
+import ButtonBillingPortal from "@/components/ButtonBillingPortal";
 import ButtonHome from "@/components/ButtonHome";
 
 async function getUser() {
@@ -26,7 +26,7 @@ export default async function Dashboard() {
       {/* HEADER */}
       <section className="bg-base-100">
         <section className="bg-base-100 max-w-5xl mx-auto px-5 py-3 flex justify-between items-center">
-          {user.hasAccess ? <ButtonPortal /> : <ButtonCheckout />}
+          {user.hasAccess ? <ButtonBillingPortal /> : <ButtonCheckout />}
           <ButtonHome />
           <ButtonLogout />
         </section>

@@ -9,9 +9,7 @@ const CardPostAdmin = ({ post }) => {
           {post.description}
         </p>
       </div>
-      {/* not necessary to pass post._id.toString() because it gets converted to string 
-      when passed in as props in React components, or sent in API requests, or JSON serialized*/}
-      <ButtonDeletePost postId={post._id} />
+      <ButtonDeletePost postId={post._id.toString()} />
     </li>
   );
 };

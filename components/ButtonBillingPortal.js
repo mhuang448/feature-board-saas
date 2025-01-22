@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const ButtonPortal = () => {
+const ButtonBillingPortal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleBilling = async () => {
@@ -35,4 +35,4 @@ const ButtonPortal = () => {
   );
 };
 
-export default ButtonPortal;
+export default ButtonBillingPortal;
