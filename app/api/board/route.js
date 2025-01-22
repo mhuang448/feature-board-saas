@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
-// import connectMongo from "@/libs/mongoose";
+import connectMongo from "@/libs/mongoose";
 import User from "@/models/User";
 import Board from "@/models/Board";
 export async function POST(request) {
