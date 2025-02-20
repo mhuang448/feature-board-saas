@@ -4,7 +4,7 @@ const CardBoardLink = ({ boardId }) => {
   const boardLink = `${
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://codefast-saas-red.vercel.app/"
+      : "https://feature-board-saas.vercel.app/"
   }/b/${boardId}`;
 
   const copyLink = () => {
