@@ -1,3 +1,9 @@
+# Project To Learn Next.js
+
+## Feature Board Application
+
+Users can post features they'd like to see in the app to public boards or private boards. Users can upvote features and add comments. Features can be sorted by most popular or most recent.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
